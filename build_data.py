@@ -91,7 +91,7 @@ def mlb_stats_api(season: int) -> pd.DataFrame:
     url = (
         "https://statsapi.mlb.com/api/v1/stats"
         f"?stats=season&group=hitting&season={season}&gameType=R"
-        "&playerPool=qualified&limit=1000&sportId=1"
+        "&playerPool=all&limit=2000&sportId=1"
     )
     splits = requests.get(url, headers=UA, timeout=60).json()["stats"][0]["splits"]
     rows = []
