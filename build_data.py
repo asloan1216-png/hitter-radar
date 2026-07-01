@@ -20,6 +20,11 @@ back to league-wide when fewer than MIN_POS_GROUP players share that position).
 Usage:
   pip install requests pandas lxml beautifulsoup4 pybaseball
   python build_data.py --season 2024 --min-pa 75    # writes players-2024.json
+
+Local rebuild note: the nightly GitHub Action commits players-<year>.json to the
+repo automatically. Always run `git pull` before a local rebuild to avoid a push
+conflict. If a conflict occurs on a data file, your fresh local build is correct —
+resolve with `git pull --no-rebase -X ours origin master` and push.
 """
 
 import argparse, datetime, io, json, re, sys
